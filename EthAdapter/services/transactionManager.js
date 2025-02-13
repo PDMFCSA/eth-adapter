@@ -41,7 +41,7 @@ async function TransactionManager() {
             inProgressNonce[nonce] = {contract, args};
 
             contract.methods[contractMethod](...args)
-                .send({ from: account.address, gas: defaultGasValue, nonce })
+                .send({ from: account.address, gas: defaultGasValue, type: 0, nonce })
                 .then((f) => {
                     const statusCode = f.events?.InvokeStatus?.returnValues?.statusCode?.toString().trim();
                     console.log(`Calling ${contractMethod} with args ${JSON.stringify(args)} finished with status code ${statusCode}`);
