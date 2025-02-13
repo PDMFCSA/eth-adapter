@@ -7,8 +7,8 @@ async function TransactionManager() {
     const self = {};
     const web3 = new Web3(rpcAddress);
 
-    // const account = web3.eth.accounts.privateKeyToAccount(privateKey);
-    const account = web3.eth.accounts.wallet.add(privateKey);
+    const account = web3.eth.accounts.privateKeyToAccount(privateKey);
+    // const account = web3.eth.accounts.wallet.add(privateKey);
     const contract = new web3.eth.Contract(abi, contractAddress);
     web3.eth.transactionPollingTimeout = 20; // Default is 750 seconds (12.5 minutes)
 
